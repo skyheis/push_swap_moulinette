@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggiannit <ggiannit@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:48:04 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/12/15 11:29:21 by ggiannit         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:11:39 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ t_stmoul *ft_make_stack(int ac, const char **av)
 void	ft_print_steps(int n_steps)
 {
 	if (!n_steps)
-		ft_printf("Error\n");
+		printf("Error\n");
 	else
 	{
 		if (n_steps == -1)
 			n_steps++;
-		ft_printf("%d\n", n_steps);
+		printf("%d\n", n_steps);
 	}
 }
 

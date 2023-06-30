@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exec_your_rules.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggiannit <ggiannit@student.42firenze.it    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 09:33:33 by ggiannit          #+#    #+#             */
-/*   Updated: 2022/12/16 09:36:13 by ggiannit         ###   ########.fr       */
+/*   Updated: 2023/06/30 22:13:49 by ggiannit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,24 +78,20 @@ void	ft_swappalo_continues(t_stmoul **st_a, t_stmoul **st_b,
 int	ft_exec_your_rules(t_stmoul **st_a, t_stmoul **st_b)
 {
 	int counter;
-	int rulz_fd;
 	char *nline;
 
 	counter = 0;
-	rulz_fd = open("lol", O_RDONLY);
-	nline = get_next_line(rulz_fd);
+	nline = get_next_line(0);
 	if (!nline)
 		counter = -1;
 	while (nline)
 	{
 		ft_swappalo(st_a, st_b, nline);
 		ft_free_null(&nline);
-		nline = get_next_line(rulz_fd);
+		nline = get_next_line(0);
 		counter++;
 	}
-	close(rulz_fd);
 	if (!ft_is_thanos_moul(*st_a, 0) || ft_istsize_moul(*st_b))
-	//if (!ft_is_thanos_moul(*st_a, 0) || ft_istsize_moul(*st_b))
 		return (0);
 	return (counter);
 }

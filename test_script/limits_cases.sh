@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    limits_cases.sh                                    :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ggiannit <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ggiannit <ggiannit@student.42firenze.it    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/14 15:11:25 by ggiannit          #+#    #+#              #
-#    Updated: 2022/12/15 14:59:55 by ggiannit         ###   ########.fr        #
+#    Updated: 2023/06/30 23:23:59 by ggiannit         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ echo ""
 
 for run in {1..10}; do
 	ARG_500=$(python3 pushswap_randomizer.py 499 -500 0)
-	./push_swap $ARG_500 -2147483648 > lol
-	./push_swap_moulinette $ARG_500 -2147483648 > results/limits_case_500_1
+	./push_swap $ARG_500 -2147483648 | ./ps_moulinette $ARG_500 -2147483648 > results/limits_case_500_1
 	RES=$(cat results/limits_case_500_1 | tail -n1)
 	if [ "$RES" == "Error" ];then
 			echo "$ARG_500 -2147483648" >> errors
@@ -51,8 +50,7 @@ echo ""
 
 for run in {1..10}; do
 	ARG_500=$(python3 pushswap_randomizer.py 499 -250 250)
-	./push_swap $ARG_500 2147483647 > lol
-	./push_swap_moulinette $ARG_500 2147483647 > results/limits_case_500_2
+	./push_swap $ARG_500 2147483647 | ./ps_moulinette $ARG_500 2147483647 > results/limits_case_500_2
 	RES=$(cat results/limits_case_500_2 | tail -n1)
 	if [ "$RES" == "Error" ];then
 			echo "$ARG_500 2147483647" >> errors
@@ -72,8 +70,7 @@ echo ""
 
 for run in {1..10}; do
 	ARG_500=$(python3 pushswap_randomizer.py 498 0 500)
-	./push_swap $ARG_500 -2147483648 2147483647 > lol
-	./push_swap_moulinette $ARG_500 -2147483648 2147483647 >> results/limits_case_500_3
+	./push_swap $ARG_500 -2147483648 2147483647 | ./ps_moulinette $ARG_500 -2147483648 2147483647 >> results/limits_case_500_3
 	RES=$(cat results/limits_case_500_3 | tail -n1)
 	if [ "$RES" == "Error" ];then
 			echo "$ARG_500 -2147483648 2147483647" >> errors
@@ -91,4 +88,3 @@ fi
 echo ""
 echo -e "\e[32m===========================================\e[0m"
 
-rm lol
